@@ -1,0 +1,61 @@
+.inner {
+  padding: 25px 40px 25px;
+  margin-bottom: 47px;
+  background-color: var(--color-light-lavender);
+  border-radius: var(--border-radius);
+
+  @media screen and (max-width: 900px) {
+    padding-inline: 25px;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 10px;
+  margin-bottom: 20px;
+}
+
+.price {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.logoWrapper {
+  max-width: 200px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: 500px) {
+    max-width: 120px;
+  }
+}
+
+.logo {
+  width: 100%;
+  height: auto;
+
+  @media screen and (max-width: 500px) {
+    // width: 120px;
+  }
+}
+
+.ticketInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.infoDetails {
+  min-width: 150px;
+
+  @media screen and (max-width: 600px) {
+    min-width: auto;
+  }
+}
+
+.title {
+  margin-bottom: 9px;
+  color: var(--color-lavender);
+}

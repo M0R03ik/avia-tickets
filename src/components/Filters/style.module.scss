@@ -1,0 +1,28 @@
+.inner {
+  box-sizing: border-box;
+  padding: 20px;
+  width: 100%;
+  border-radius: var(--border-radius);
+  background-color: var(--color-light-lavender);
+
+  @media screen and (max-width: 900px) {
+    padding: 25px;
+    background-color: transparent;
+    border-radius: none;
+    color: var(--color-white);
+    width: auto;
+  }
+}
+
+.title {
+  margin: 0;
+  margin-bottom: 27px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 19px;
+}

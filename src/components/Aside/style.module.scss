@@ -1,0 +1,91 @@
+@import '../../mixins.scss';
+
+.aside {
+  display: flex;
+  flex-direction: column;
+  max-width: 272px;
+  width: 100%;
+
+  @media screen and (max-width: 900px) {
+    max-width: none;
+    max-height: 1000px;
+    background-color: var(--color-purple);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(1, 0, 1, 0);
+  }
+}
+
+.hide {
+  max-height: 44px;
+  transition: all 0.3s cubic-bezier(0, 1, 0, 1);
+
+  @media screen and (max-width: 600px) {
+    max-height: 40px;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 25px 13px;
+  color: var(--color-white);
+
+  @media screen and (min-width: 900px) {
+    @include visually-hidden;
+  }
+
+  @media screen and (max-width: 600px) {
+    padding: 12px 17px;
+    font-size: 12px;
+  }
+}
+
+.settings {
+  display: flex;
+  align-items: center;
+  column-gap: 17px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.settingsButton {
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.rotate {
+  transform: rotateX(180deg);
+}
+
+.description {
+  @media screen and (max-width: 670px) {
+    @include visually-hidden;
+  }
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  row-gap: 47px;
+  max-width: 272px;
+  width: 100%;
+
+  @media screen and (max-width: 900px) {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    column-gap: 60px;
+    max-width: none;
+  }
+
+  @media screen and (max-width: 600px) {
+    column-gap: 10px;
+  }
+
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
+    row-gap: 0;
+  }
+}

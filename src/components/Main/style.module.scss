@@ -1,0 +1,35 @@
+.inner {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 20px;
+  // width: 100%;
+
+  @media screen and (max-width: 900px) {
+    flex-direction: column;
+    row-gap: 38px;
+  }
+}
+
+.content {
+  max-width: 727px;
+  width: 100%;
+
+  @media screen and (max-width: 900px) {
+    max-width: none;
+  }
+}
+
+.loadButton {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 16px 16px 17px;
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--color-white);
+  background-color: var(--color-purple);
+  border-radius: var(--border-radius);
+
+  &:hover {
+    color: var(--color-light-lavender);
+  }
+}

@@ -1,0 +1,57 @@
+import s from './style.module.scss'
+import arrow from '../../assets/icons/arrow.png'
+import { useState } from 'react'
+import { Filters } from '../Filters/Filters'
+import { Input } from '../Input/Input'
+
+export const Aside = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+
+  return (
+    <div className={isOpen ? `${s.aside}` : `${s.aside} ${s.hide}`}>
+      <div className={s.header}>
+        <div>Любая авиакомпания, Любое кол-во пересадок</div>
+        <div className={s.settings} onClick={() => setIsOpen(!isOpen)}>
+          <div className={s.description}>
+            {isOpen ? 'Закрыть настройки' : 'Открыть настройки'}
+          </div>
+
+          <div
+            className={
+              isOpen ? `${s.settingsButton} ${s.rotate}` : `${s.settingsButton}`
+            }
+          >
+            <img src={arrow} width={20} height={12} />
+          </div>
+        </div>
+      </div>
+      <div className={s.filters}>
+        <Filters title='Количество пересадок'>
+          <Input type='checkbox' name='transfers' id='no-transfers' value='0'>
+            Без пересадок
+          </Input>
+          <Input type='checkbox' name='transfers' id='1-transfer' value='1'>
+            1 пересадка
+          </Input>
+          <Input type='checkbox' name='transfers' id='2-transfer' value='2'>
+            2 пересадки
+          </Input>
+          <Input type='checkbox' name='transfers' id='3-transfer' value='3'>
+            3 пересадки
+          </Input>
+        </Filters>
+        <Filters title='Компании'>
+          <Input type='radio' name='company' id='pobeda' value='pobeda'>
+            Победа
+          </Input>
+          <Input type='radio' name='company' id='red-wings' value='red-wings'>
+            Red Wings
+          </Input>
+          <Input type='radio' name='company' id='s7' value='s7'>
+            S7 Airlines
+          </Input>
+        </Filters>
+      </div>
+    </div>
+  )
+}

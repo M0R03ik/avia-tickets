@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "from": "SVO",
+    "to": "LED",
+    "company": "pobeda",
+    "price": 12680,
+    "currency": "RUB",
+    "time": {
+      "startTime": "12:00",
+      "endTime": "16:30"
+    },
+    "duration": 270,
+    "date": "3 апреля",
+    "transfer": 1
+  },
+  {
+    "id": 2,
+    "from": "SVO",
+    "to": "LED",
+    "company": "red-wings",
+    "price": 21500,
+    "currency": "RUB",
+    "time": {
+      "startTime": "14:00",
+      "endTime": "16:00"
+    },
+    "duration": 120,
+    "date": "3 апреля",
+    "transfer": 0
+  },
+  {
+    "id": 3,
+    "from": "SVO",
+    "to": "LED",
+    "company": "s7",
+    "price": 23995,
+    "currency": "RUB",
+    "time": {
+      "startTime": "04:50",
+      "endTime": "13:30"
+    },
+    "duration": 520,
+    "date": "3 апреля",
+    "transfer": 2
+  },
+  {
+    "id": 4,
+    "from": "SVO",
+    "to": "LED",
+    "company": "s7",
+    "price": 20345,
+    "currency": "RUB",
+    "time": {
+      "startTime": "15:50",
+      "endTime": "17:00"
+    },
+    "duration": 70,
+    "date": "3 апреля",
+    "transfer": 0
+  },
+  {
+    "id": 5,
+    "from": "SVO",
+    "to": "LED",
+    "company": "pobeda",
+    "price": 13000,
+    "currency": "RUB",
+    "time": {
+      "startTime": "22:10",
+      "endTime": "23:30"
+    },
+    "duration": 80,
+    "date": "3 апреля",
+    "transfer": 0
+  },
+  {
+    "id": 6,
+    "from": "SVO",
+    "to": "LED",
+    "company": "s7",
+    "price": 20340,
+    "currency": "RUB",
+    "time": {
+      "startTime": "09:50",
+      "endTime": "11:00"
+    },
+    "duration": 70,
+    "date": "3 апреля",
+    "transfer": 0
+  },
+  {
+    "id": 7,
+    "from": "SVO",
+    "to": "LED",
+    "company": "red-wings",
+    "price": 25700,
+    "currency": "RUB",
+    "time": {
+      "startTime": "05:30",
+      "endTime": "15:30"
+    },
+    "duration": 600,
+    "date": "3 апреля",
+    "transfer": 3
+  },
+  {
+    "id": 8,
+    "from": "SVO",
+    "to": "LED",
+    "company": "pobeda",
+    "price": 14400,
+    "currency": "RUB",
+    "time": {
+      "startTime": "06:00",
+      "endTime": "07:30"
+    },
+    "duration": 90,
+    "date": "3 апреля",
+    "transfer": 0
+  }
+]
