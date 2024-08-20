@@ -35,7 +35,7 @@ export const fetchTickets = createAsyncThunk(
     try {
       const response = await mock(true, 2000)
 
-      return response
+      return response as ITicket[]
     } catch (e) {
       return api.rejectWithValue('Ошибка')
     }
