@@ -4,15 +4,39 @@ import { useState } from 'react'
 import { Filters } from '../Filters/Filters'
 import { Input } from '../Input/Input'
 import { useAppSelector } from '../../store/store'
+import { FILTERS_TYPES } from '../../config'
 
 export const Aside = () => {
   const { filters } = useAppSelector(state => state.tickets)
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
+  const chekFilters = (filterType: 'airlines' | 'transfers') => {
+    let activeFilters = FILTERS_TYPES[filterType] as (string | number)[]
+
+    filters[filterType].map(
+      filter =>
+        (activeFilters = activeFilters.filter(
+          activeFilter => activeFilter !== filter
+        ))
+    )
+
+    if (filters[filterType].length) {
+      return filterType === 'airlines'
+        ? `Авиакомпании: ${activeFilters.join(', ')}`
+        : `Пересадок: ${activeFilters.join(', ')}`
+    }
+
+    return filterType === 'airlines'
+      ? 'Любая авиакомпания'
+      : 'Любое кол-во пересадок'
+  }
+
   return (
     <div className={isOpen ? `${s.aside}` : `${s.aside} ${s.hide}`}>
       <div className={s.header}>
-        <div>Любая авиакомпания, Любое кол-во пересадок</div>
+        <div>
+          {chekFilters('airlines')}, {chekFilters('transfers')}
+        </div>
         <div className={s.settings} onClick={() => setIsOpen(!isOpen)}>
           <div className={s.description}>
             {isOpen ? 'Закрыть настройки' : 'Открыть настройки'}

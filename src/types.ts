@@ -15,3 +15,8 @@ export interface ITicket {
   date: string
   transfer: number
 }
+
+export interface IFilterType {
+  airlines: string[]
+  transfers: number[]
+}
