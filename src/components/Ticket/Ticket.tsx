@@ -7,7 +7,7 @@ interface TicketProps {
 }
 
 export const Ticket = ({ ticket }: TicketProps) => {
-  const { id, price, company, duration, from, to, time, transfer } = ticket
+  const { price, company, duration, from, to, time, transfer } = ticket
   return (
     <div className={s.inner}>
       <div className={s.header}>
