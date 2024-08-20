@@ -1,15 +1,20 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { ITicket } from '../../types'
+import { IFilterType, ITicket } from '../../types'
 import data from '../../../mock.json'
 
 type TinitialState = {
   isLoading: boolean
   tickets: ITicket[]
+  filters: IFilterType
 }
 
 const initialState: TinitialState = {
   isLoading: false,
-  tickets: [] as any,
+  tickets: [],
+  filters: {
+    airlines: [],
+    transfers: [],
+  },
 }
 
 const mock = (success: boolean, timeout: number = 1000) => {
@@ -42,16 +47,30 @@ const ticketsSlice = createSlice({
   initialState,
 
   reducers: {
-    addTickets: (state, action: PayloadAction<ITicket[]>) => {},
-    removeTickets: (state, action) => {
-      if (action.payload.name === 'company') {
-        state.tickets = state.tickets.filter(
-          ticket => ticket.company !== action.payload.value
-        )
+    addFilters: (state, action) => {
+      if (action.payload.name === 'airlines') {
+        if (state.filters.airlines.some(r => r === action.payload.value)) {
+          return
+        }
+        state.filters.airlines.push(action.payload.value)
       }
       if (action.payload.name === 'transfers') {
-        state.tickets = state.tickets.filter(
-          ticket => ticket.transfer !== +action.payload.value
+        if (state.filters.transfers.some(r => r === +action.payload.value)) {
+          return
+        }
+        state.filters.transfers.push(+action.payload.value)
+      }
+    },
+    removeFilters: ({ filters }, action) => {
+      if (action.payload.name === 'airlines') {
+        filters.airlines = filters.airlines.filter(
+          item => item !== action.payload.value
+        )
+      }
+
+      if (action.payload.name === 'transfers') {
+        filters.transfers = filters.transfers.filter(
+          item => item !== +action.payload.value
         )
       }
     },
@@ -78,8 +97,7 @@ const ticketsSlice = createSlice({
         state.tickets = action.payload
       }
     )
-    builder.addCase(fetchTickets.rejected, (state, action) => {
-      console.log(action)
+    builder.addCase(fetchTickets.rejected, state => {
       state.isLoading = false
       state.tickets = []
     })
@@ -87,8 +105,8 @@ const ticketsSlice = createSlice({
 })
 
 export const {
-  addTickets,
-  removeTickets,
+  addFilters,
+  removeFilters,
   sortByPrice,
   sortByDuration,
   sortByOptimal,

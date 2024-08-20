@@ -3,8 +3,10 @@ import arrow from '../../assets/icons/arrow.png'
 import { useState } from 'react'
 import { Filters } from '../Filters/Filters'
 import { Input } from '../Input/Input'
+import { useAppSelector } from '../../store/store'
 
 export const Aside = () => {
+  const { filters } = useAppSelector(state => state.tickets)
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   return (
@@ -41,13 +43,13 @@ export const Aside = () => {
           </Input>
         </Filters>
         <Filters title='Компании'>
-          <Input type='radio' name='company' id='pobeda' value='pobeda'>
+          <Input type='radio' name='airlines' id='pobeda' value='pobeda'>
             Победа
           </Input>
-          <Input type='radio' name='company' id='red-wings' value='red-wings'>
+          <Input type='radio' name='airlines' id='red-wings' value='red-wings'>
             Red Wings
           </Input>
-          <Input type='radio' name='company' id='s7' value='s7'>
+          <Input type='radio' name='airlines' id='s7' value='s7'>
             S7 Airlines
           </Input>
         </Filters>

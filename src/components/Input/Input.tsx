@@ -1,6 +1,6 @@
-import { useDispatch } from 'react-redux'
 import s from './style.module.scss'
-import { removeTickets } from '../../store/slices/ticketsSlice'
+import { addFilters, removeFilters } from '../../store/slices/ticketsSlice'
+import { useAppDispatch } from '../../store/store'
 
 interface IInput {
   type: 'checkbox' | 'radio'
@@ -11,17 +11,20 @@ interface IInput {
 }
 
 export const Input = ({ type, name, id, value, children }: IInput) => {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.checked) {
-    }
     const payload = {
       name: e.target.name,
       value: e.target.value,
     }
 
-    dispatch(removeTickets(payload))
+    if (e.target.checked) {
+      dispatch(removeFilters(payload))
+      return
+    }
+
+    dispatch(addFilters(payload))
   }
   return (
     <div className={s.inner}>
